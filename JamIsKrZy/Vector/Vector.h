@@ -2,23 +2,29 @@
 #define VECTOR_H_
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct Vector{
     size_t length;
-    size_t capacity;
+    size_t cap;
     size_t top;
+    size_t memsize;
     void *base;
 } Vector;
 
+/**
+ * Used only in stack memory
+ */
 #define Init_Vector(memSize, capacity) {\
     .base = malloc(memSize * capacity), \
     .length = 0,                        \
     .top = 0,                           \
-    .capacity = capacity                \
+    .memsize = memSize,                 \
+    .cap = capacity                \
 }
 
-bool push();
-bool pop();
+bool push(Vector *vec, const void* data);
+bool pop(Vector *vec, void* returnData);
 
 bool set();
 bool get();
