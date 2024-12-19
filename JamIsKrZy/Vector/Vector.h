@@ -5,7 +5,6 @@
 #include <stdbool.h>
 
 typedef struct Vector{
-    size_t length;
     size_t cap;
     size_t top;
     size_t memsize;
@@ -17,18 +16,24 @@ typedef struct Vector{
  */
 #define Init_Vector(memSize, capacity) {\
     .base = malloc(memSize * capacity), \
-    .length = 0,                        \
     .top = 0,                           \
     .memsize = memSize,                 \
     .cap = capacity                \
 }
 
-bool push(Vector *vec, const void* data);
-bool pop(Vector *vec, void* returnData);
+Vector* new_box_vector(size_t memsize, size_t capacity);
+Vector new_vector(size_t memsize, size_t capacity);
+
+
+bool push_vector(Vector *vec, const void* data);
+bool pop_vector(Vector *vec, void* returnData);
 
 bool set();
-bool get();
-bool search();
+void* get_vector(Vector *vec, size_t index);
+bool search(Vector *vec, void* value, bool (*validate)(const void* value1, const void* value2));
 
+void print_vector(Vector *vec, void (*format)(const void *value));
+
+void free_vector(Vector *vec);
 
 #endif

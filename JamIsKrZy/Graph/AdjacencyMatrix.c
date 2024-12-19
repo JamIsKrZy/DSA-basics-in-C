@@ -20,7 +20,7 @@ AdjMatrixGraph* new_graph_matrix(size_t nodeCount){
     return graph;
 }
 
-bool to_edge(AdjMatrixGraph* graph, size_t from, size_t to){
+bool direct_edge(AdjMatrixGraph* graph, size_t from, size_t to){
     if(graph == NULL && graph->matrix == NULL) return false;
     if (from > graph->nodeCount || to > graph->nodeCount) return false;
     
@@ -28,7 +28,7 @@ bool to_edge(AdjMatrixGraph* graph, size_t from, size_t to){
     return true;
 }
 
-bool disconnect_edge(AdjMatrixGraph* graph, size_t from, size_t to){
+bool remove_direct_edge(AdjMatrixGraph* graph, size_t from, size_t to){
     if(graph == NULL && graph->matrix == NULL) return false;
     if (from > graph->nodeCount || to > graph->nodeCount) return false;
     
@@ -60,10 +60,8 @@ void matrix_dfs(AdjMatrixGraph* graph, size_t starting){
             continue;
         }
         
-        // Mark as visited
         traveled[catch] = true;
 
-        // Process the current node (e.g., print it)
         printf("%ld ", catch);
 
         // Push all unvisited neighbors onto the stack

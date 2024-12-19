@@ -12,8 +12,8 @@ typedef struct AdjMatrix{
 AdjMatrixGraph* new_graph_matrix(size_t nodeCount);
 
 bool connect_edge(AdjMatrixGraph* graph, size_t node1, size_t node2);
-bool to_edge(AdjMatrixGraph* graph, size_t from, size_t to);
-bool disconnect_edge(AdjMatrixGraph* graph, size_t from, size_t to);
+bool direct_edge(AdjMatrixGraph* graph, size_t from, size_t to);
+bool remove_direct_edge(AdjMatrixGraph* graph, size_t from, size_t to);
 bool has_edge(AdjMatrixGraph* graph, size_t from, size_t to);
 
 void matrix_dfs(AdjMatrixGraph* graph, size_t starting);

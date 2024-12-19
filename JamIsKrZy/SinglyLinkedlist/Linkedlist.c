@@ -51,8 +51,9 @@ bool pop(Linkedlist* list, void* returnValue){
 
     SingleNode* node = list->head;
     memcpy(returnValue, node+1, list->memSize);
-    node->next = node->next;
+    list->head = node->next;
     list->length--;
+    free(node);
     return true;
 }
 
