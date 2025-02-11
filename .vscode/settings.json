@@ -3,6 +3,9 @@
         "stdbool.h": "c",
         "vectoriterator.h": "c",
         "vector.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "hashmap.h": "c",
+        "adjacencylist.h": "c",
+        "list.h": "c"
     }
 }
